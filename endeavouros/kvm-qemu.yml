@@ -1,0 +1,12 @@
+---
+- name: Setup localhost
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install virt-manager packages
+      community.general.pacman:
+        name: ['virt-manager','qemu','libvirt','edk2-ovmf','dnsmasq','vde2','bridge-utils','openbsd-netcat','iptables-nft','dmidecode']
+        state: present
+    - name: Enable and start libvirtd.service      
+...

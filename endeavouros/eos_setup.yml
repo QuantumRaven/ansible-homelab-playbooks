@@ -1,0 +1,17 @@
+---
+- name: Setup localhost
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Update packages
+      community.general.pacman:
+        update_cache: yes
+    - name: Upgrade packages
+      community.general.pacman:
+        upgrade: yes
+    - name: Install pacman packages
+      community.general.pacman:
+        name: ['asciinema','discord','element-desktop','gimp','inkscape','lshw','mtr','obs-studio','p7zip','terminator','vim']
+        state: present
+...

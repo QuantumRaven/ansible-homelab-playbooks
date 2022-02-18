@@ -1,0 +1,13 @@
+---
+- name: Setup localhost
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Update packages
+      community.general.pacman:
+        update_cache: yes
+    - name: Upgrade packages
+      community.general.pacman:
+        upgrade: yes
+...
